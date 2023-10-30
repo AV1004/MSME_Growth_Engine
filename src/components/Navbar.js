@@ -117,13 +117,13 @@ export default function Navbar() {
                   cy="11.5"
                   r="7"
                   stroke="#33363F"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <path
                   d="M20 20.5L17 17.5"
                   stroke="#33363F"
-                  stroke-width="2"
-                  stroke-linecap="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                 />
               </svg>
             </button>
