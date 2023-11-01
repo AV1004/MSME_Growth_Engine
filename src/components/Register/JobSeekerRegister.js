@@ -1,23 +1,9 @@
 import React from "react";
-import Photo from "../images/RegisterIconSEEKERS.png";
+import Photo from "../../images/JobSeekerIcon.png";
 export default function JobSeekerRegister() {
   return (
     <div>
       <div>
-        <div className="justify-center items-center flex flex-col mt-7">
-          <span className="text-black font-semibold text-3xl">
-            Register YourSelf Here
-          </span>
-          <div className="space-x-4 mt-14 flex absolute left-28 top-24">
-            <button className="bg-blue-500 text-white px-6 py-1 text-center shadow-lg shadow-gray-800  rounded">
-              Job Seekers
-            </button>
-            <button className="border-2 border-blue-500 text-blue-500 px-6 py-1 text-center  rounded">
-              Company
-            </button>
-          </div>
-        </div>
-
         <div className="border pb-[3rem] ml-[22rem] mt-[5rem] border-gray-100 shadow-lg rounded-xl shadow-gray-800 w-[64rem] h-[36rem] mb-28 flex flex-row justify-center  items-center space-x-28 ">
           <div className="ml-[4rem]">
             <img src={Photo} alt="LOGO" className="w-80 h-80" />
@@ -181,7 +167,7 @@ export default function JobSeekerRegister() {
                     strokeLinecap="round"
                   />
                 </svg>
-                <select className=" border border-black w-72 h-10 rounded-r-xl ">
+                <select className=" border text-gray-400 pl-3 border-black w-72 h-10 rounded-r-xl ">
                   <option value="none">Institute</option>
                   <option value="CITD">
                     Central Institute of tool design(CITD),Hydrabad
@@ -241,7 +227,7 @@ export default function JobSeekerRegister() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <select className=" border border-black w-72 h-10 rounded-r-xl ">
+                <select className=" border border-black w-72 text-gray-400 pl-3 h-10 rounded-r-xl ">
                   <option value="none">Qualification</option>
                   <option value="CITD">Below HSC/10th</option>
                   <option value="CTR">HSC/10th</option>

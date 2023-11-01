@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LOGO from "../images/LOGO.png";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const [homeButtonState, setHomeButtonState] = useState({
     class: "bg-white text-blue-500 px-6 py-1 text-center  rounded-2xl",
   });
@@ -38,6 +38,7 @@ export default function Navbar() {
                 setServicesButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
+                props.GiveNevigationValue("Home");
               }}
               className={homeButtonState.class}
             >
@@ -56,6 +57,7 @@ export default function Navbar() {
                 setServicesButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
+                props.GiveNevigationValue("AboutMsme");
               }}
               className={aboutButtonState.class}
             >
@@ -74,6 +76,7 @@ export default function Navbar() {
                 setServicesButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
+                props.GiveNevigationValue("Learn");
               }}
               className={learnButtonState.class}
             >
@@ -92,6 +95,7 @@ export default function Navbar() {
                 setLearnButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
+                props.GiveNevigationValue("Services");
               }}
               className={servicesButtonState.class}
             >
@@ -140,6 +144,7 @@ export default function Navbar() {
                 setLearnButtonState({ class: "" });
                 setServicesButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
+                props.GiveNevigationValue("Register");
               }}
               className={registerButtonState.class}
             >
@@ -156,6 +161,7 @@ export default function Navbar() {
                   class:
                     "bg-white text-blue-500 px-6 py-1 text-center  rounded-2xl",
                 });
+                props.GiveNevigationValue("Login");
               }}
               className={loginButtonState.class}
             >
