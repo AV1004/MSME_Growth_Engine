@@ -21,13 +21,9 @@ function App() {
 
       <main className="mb-auto h-90">
         {/* {nevigationValue === "Register" ? <RegisterMain /> : <LoginMain />} */}
-<<<<<<< HEAD
-    <AboutUs/>
 
-=======
         {/* <AfterRegisterJobSeeker /> */}
         <AfterRegisterCompany />
->>>>>>> 5954710d7b4b568ca0a62d764506d5fc4c306429
       </main>
 
       <Footer />
