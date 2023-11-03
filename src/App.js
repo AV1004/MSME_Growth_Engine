@@ -2,6 +2,7 @@ import { useState } from "react";
 import Footer from "./components/Footer";
 import LoginMain from "./components/Login/LoginMain";
 import Navbar from "./components/Navbar";
+import AboutUs from "./components/AboutUs";
 import RegisterMain from "./components/Register/RegisterMain";
 
 function App() {
@@ -17,7 +18,9 @@ function App() {
       <Navbar GiveNevigationValue={GetValueOfNevigation} />
 
       <main className="mb-auto h-90">
-        {nevigationValue === "Register" ? <RegisterMain /> : <LoginMain />}
+        {/* {nevigationValue === "Register" ? <RegisterMain /> : <LoginMain />} */}
+    <AboutUs/>
+
       </main>
 
       <Footer />
