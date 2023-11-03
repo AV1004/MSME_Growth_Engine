@@ -142,7 +142,7 @@ export default function CompanyRegister() {
                   className=" bg-white border border-black w-72 h-10 rounded-r-xl p-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
               </div>
-              <button className="e bg-blue-500 text-white p-2 w-[8rem] mt-7 text-center shadow-lg  rounded">
+              <button className=" bg-blue-500 text-white p-2 w-[8rem] mt-7 text-center shadow-lg  rounded">
                 Register
               </button>
               <span>

@@ -3,6 +3,8 @@ import Footer from "./components/Footer";
 import LoginMain from "./components/Login/LoginMain";
 import Navbar from "./components/Navbar";
 import RegisterMain from "./components/Register/RegisterMain";
+import AfterRegisterJobSeeker from "./components/Register/AfterRegisterJobSeeker";
+import AfterRegisterCompany from "./components/Register/AfterRegisterCompany";
 
 function App() {
   const [nevigationValue, setNevigationValue] = useState("Home");
@@ -17,7 +19,9 @@ function App() {
       <Navbar GiveNevigationValue={GetValueOfNevigation} />
 
       <main className="mb-auto h-90">
-        {nevigationValue === "Register" ? <RegisterMain /> : <LoginMain />}
+        {/* {nevigationValue === "Register" ? <RegisterMain /> : <LoginMain />} */}
+        {/* <AfterRegisterJobSeeker /> */}
+        <AfterRegisterCompany />
       </main>
 
       <Footer />
