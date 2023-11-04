@@ -1,11 +1,14 @@
 import { useState } from "react";
+import MsmesHome from "./components/MSMEs/MsmesHome";
 import Footer from "./components/Footer";
 import LoginMain from "./components/Login/LoginMain";
 import Navbar from "./components/Navbar";
+import CompnayHome from '../src/components/CompanyProfile/CompnayHome'
 import AboutUs from "./components/AboutUs";
 import RegisterMain from "./components/Register/RegisterMain";
 import AfterRegisterJobSeeker from "./components/Register/AfterRegisterJobSeeker";
 import AfterRegisterCompany from "./components/Register/AfterRegisterCompany";
+import MainHome from "./components/MainHome";
 
 function App() {
   const [nevigationValue, setNevigationValue] = useState("Home");
@@ -25,13 +28,13 @@ function App() {
 
   const showMainContent = () => {
     if (nevigationValue === "Home") {
-      return "Home Page";
+      return <MainHome />;
     } else if (nevigationValue === "AboutMsme") {
       return <AboutUs />;
     } else if (nevigationValue === "Learn") {
-      return "Learn Page";
-    } else if (nevigationValue === "Services") {
-      return "Services Page";
+      return <CompnayHome/>;
+    } else if (nevigationValue === "MsmesHome") {
+      return <MsmesHome/>;
     } else if (nevigationValue === "Register") {
       return (
         <RegisterMain
@@ -56,6 +59,7 @@ function App() {
       <Navbar GiveNevigationValue={GetValueOfNevigation} />
 
       <main className="mb-auto h-90">{showMainContent()}</main>
+     
 
       <Footer />
     </div>

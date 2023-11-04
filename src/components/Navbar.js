@@ -11,7 +11,7 @@ export default function Navbar(props) {
   const [learnButtonState, setLearnButtonState] = useState({
     class: "",
   });
-  const [servicesButtonState, setServicesButtonState] = useState({
+  const [MsmesHomeButtonState, setMsmesHomeButtonState] = useState({
     class: "",
   });
   const [registerButtonState, setRegisterButtonState] = useState({
@@ -35,7 +35,7 @@ export default function Navbar(props) {
                 });
                 setAboutButtonState({ class: "" });
                 setLearnButtonState({ class: "" });
-                setServicesButtonState({ class: "" });
+                setMsmesHomeButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
                 props.GiveNevigationValue("Home");
@@ -54,7 +54,7 @@ export default function Navbar(props) {
                 });
                 setHomeButtonState({ class: "" });
                 setLearnButtonState({ class: "" });
-                setServicesButtonState({ class: "" });
+                setMsmesHomeButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
                 props.GiveNevigationValue("AboutMsme");
@@ -73,7 +73,7 @@ export default function Navbar(props) {
                 });
                 setHomeButtonState({ class: "" });
                 setAboutButtonState({ class: "" });
-                setServicesButtonState({ class: "" });
+                setMsmesHomeButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
                 props.GiveNevigationValue("Learn");
@@ -86,7 +86,7 @@ export default function Navbar(props) {
           <li>
             <button
               onClick={() => {
-                setServicesButtonState({
+                setMsmesHomeButtonState({
                   class:
                     "bg-white text-blue-500 px-6 py-1 text-center  rounded-2xl",
                 });
@@ -95,11 +95,11 @@ export default function Navbar(props) {
                 setLearnButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
-                props.GiveNevigationValue("Services");
+                props.GiveNevigationValue("MsmesHome");
               }}
-              className={servicesButtonState.class}
+              className={MsmesHomeButtonState.class}
             >
-              Services
+              MSMEs
             </button>
           </li>
           <li>
@@ -142,7 +142,7 @@ export default function Navbar(props) {
                 setHomeButtonState({ class: "" });
                 setAboutButtonState({ class: "" });
                 setLearnButtonState({ class: "" });
-                setServicesButtonState({ class: "" });
+                setMsmesHomeButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
                 props.GiveNevigationValue("Register");
               }}
@@ -155,7 +155,7 @@ export default function Navbar(props) {
                 setHomeButtonState({ class: "" });
                 setAboutButtonState({ class: "" });
                 setLearnButtonState({ class: "" });
-                setServicesButtonState({ class: "" });
+                setMsmesHomeButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({
                   class:
