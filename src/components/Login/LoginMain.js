@@ -3,6 +3,10 @@ import JobSeekerLogin from "./JobSeekerLogin";
 import CompanyLogin from "./CompanyLogin";
 
 export default function LoginMain(props) {
+  const isUserLoggedIn = (condition) => {
+    props.isUserLoggedIn(condition);
+  };
+
   const [stateOfRegisterButton, setStateOfRegisterButton] =
     useState("JobSeeker");
   const BtnActiveClass =
@@ -46,7 +50,10 @@ export default function LoginMain(props) {
       {stateOfRegisterButton === "JobSeeker" ? (
         <JobSeekerLogin JobSeekerData={props.JobSeekrData} />
       ) : (
-        <CompanyLogin CompanyData={props.CompanyData} />
+        <CompanyLogin
+          isUserLoggedIn={isUserLoggedIn}
+          CompanyData={props.CompanyData}
+        />
       )}
     </div>
   );

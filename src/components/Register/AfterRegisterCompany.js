@@ -1,7 +1,13 @@
 import React, { useRef } from "react";
 
-export default function AfterRegisterCompany() {
+export default function AfterRegisterCompany(props) {
   const mainFormRef = useRef();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    props.isCompanyRegistered("No");
+    props.redirectHome();
+  };
 
   const resetHandler = (e) => {
     e.preventDefault();
@@ -12,6 +18,7 @@ export default function AfterRegisterCompany() {
       <h1 className="font-bold text-4xl mt-10">Enter Your Details</h1>
       <form
         ref={mainFormRef}
+        onSubmit={submitHandler}
         className="flex flex-col items-center shadow-2xl p-10 mb-10 rounded-lg mt-4"
       >
         <div className="mt-16">
@@ -425,7 +432,10 @@ export default function AfterRegisterCompany() {
             >
               Reset
             </button>
-            <button className="border rounded-md p-2 text-white w-28 bg-[#267DFF] text-xl ml-2 mt-5">
+            <button
+              type="submit"
+              className="border rounded-md p-2 text-white w-28 bg-[#267DFF] text-xl ml-2 mt-5"
+            >
               Submit
             </button>
           </div>

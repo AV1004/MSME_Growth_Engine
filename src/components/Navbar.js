@@ -20,6 +20,76 @@ export default function Navbar(props) {
   const [loginButtonState, setLoginButtonState] = useState({
     class: "",
   });
+  const [companyIsLoggedIn, setCompanyIsLoggedIn] = useState({
+    class: "",
+  });
+
+  const logInRegisterOrProfile = () => {
+    console.log(props.isCompanyUserHasBeenLoggedIn);
+    if (props.isCompanyUserHasBeenLoggedIn === "Yes") {
+      return (
+        <div className="space-x-9 pl-48">
+          <button
+            onClick={() => {
+              setCompanyIsLoggedIn({
+                class:
+                  "bg-white text-blue-500 px-6 py-1 text-center  rounded-2xl",
+              });
+              setHomeButtonState({ class: "" });
+              setAboutButtonState({ class: "" });
+              setLearnButtonState({ class: "" });
+              setServicesButtonState({ class: "" });
+              props.GiveNevigationValue("My Profile");
+            }}
+            className={companyIsLoggedIn.class}
+          >
+            My Profile
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div className="space-x-9 pl-48">
+          <button
+            onClick={() => {
+              setRegisterButtonState({
+                class:
+                  "bg-white text-blue-500 px-6 py-1 text-center  rounded-2xl",
+              });
+              setHomeButtonState({ class: "" });
+              setAboutButtonState({ class: "" });
+              setLearnButtonState({ class: "" });
+              setServicesButtonState({ class: "" });
+              setLoginButtonState({ class: "" });
+              setCompanyIsLoggedIn({ class: "" });
+              props.GiveNevigationValue("Register");
+            }}
+            className={registerButtonState.class}
+          >
+            Register
+          </button>
+          <button
+            onClick={() => {
+              setHomeButtonState({ class: "" });
+              setAboutButtonState({ class: "" });
+              setLearnButtonState({ class: "" });
+              setServicesButtonState({ class: "" });
+              setRegisterButtonState({ class: "" });
+              setCompanyIsLoggedIn({ class: "" });
+              setLoginButtonState({
+                class:
+                  "bg-white text-blue-500 px-6 py-1 text-center  rounded-2xl",
+              });
+              props.GiveNevigationValue("Login");
+            }}
+            className={loginButtonState.class}
+          >
+            Login
+          </button>
+        </div>
+      );
+    }
+  };
 
   return (
     <div>
@@ -38,6 +108,7 @@ export default function Navbar(props) {
                 setMsmesHomeButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
+                setCompanyIsLoggedIn({ class: "" });
                 props.GiveNevigationValue("Home");
               }}
               className={homeButtonState.class}
@@ -57,6 +128,7 @@ export default function Navbar(props) {
                 setMsmesHomeButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
+                setCompanyIsLoggedIn({ class: "" });
                 props.GiveNevigationValue("AboutMsme");
               }}
               className={aboutButtonState.class}
@@ -76,6 +148,7 @@ export default function Navbar(props) {
                 setMsmesHomeButtonState({ class: "" });
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
+                setCompanyIsLoggedIn({ class: "" });
                 props.GiveNevigationValue("Learn");
               }}
               className={learnButtonState.class}
@@ -96,6 +169,8 @@ export default function Navbar(props) {
                 setRegisterButtonState({ class: "" });
                 setLoginButtonState({ class: "" });
                 props.GiveNevigationValue("MsmesHome");
+                setCompanyIsLoggedIn({ class: "" });
+                props.GiveNevigationValue("Services");
               }}
               className={MsmesHomeButtonState.class}
             >
@@ -168,6 +243,8 @@ export default function Navbar(props) {
               Login
             </button>
           </div>
+
+          {logInRegisterOrProfile()}
         </ul>
       </nav>
     </div>

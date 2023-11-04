@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Photo from "../../images/CompanyIcon.png";
 
-export default function CompanyLogin() {
+export default function CompanyLogin(props) {
+  const [username, setUsername] = useState("");
+
+  const filterCompanyData = props.CompanyData.map((data) => {
+    return data.compName;
+  });
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (filterCompanyData.includes(username)) {
+      alert("Logged In successfully");
+      props.isUserLoggedIn("Yes");
+    } else {
+      alert("Please enter valid Username!");
+      props.isUserLoggedIn("No");
+    }
+  };
+
   return (
     <div>
       <div>
@@ -11,7 +28,11 @@ export default function CompanyLogin() {
           </div>
           <div className="pr-[4rem] ">
             <div className="font-bold text-2xl text-center m-4">Login</div>
-            <form action="" className="space-y-5 flex flex-col items-center">
+            <form
+              action=""
+              onSubmit={submitHandler}
+              className="space-y-5 flex flex-col items-center"
+            >
               <div className="flex ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -33,6 +54,10 @@ export default function CompanyLogin() {
                 <input
                   className="bg-white border border-black w-72 h-10 rounded-r-xl p-3"
                   type="text"
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setUsername(e.target.value);
+                  }}
                   placeholder="User Name"
                   required
                 />
@@ -67,11 +92,13 @@ export default function CompanyLogin() {
               </div>
               <p className="text-[#267DFF] mr-48">Forgot Password?</p>
               <button className="e bg-blue-500 text-white p-2 w-[8rem] mt-7 text-center shadow-lg  rounded">
-                Register
+                Login
               </button>
               <span>
                 Already have an account?{" "}
-                <button className="text-blue-400">Login</button>
+                <button className="text-blue-400" type="submit">
+                  Register
+                </button>
               </span>
             </form>
           </div>

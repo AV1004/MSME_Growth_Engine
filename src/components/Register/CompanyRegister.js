@@ -17,6 +17,8 @@ export default function CompanyRegister(props) {
       compURL: compURL,
     };
 
+    props.isCompanyRegistered("Yes");
+
     props.passDataToMainRegister(submitedData);
 
     setCompName("");

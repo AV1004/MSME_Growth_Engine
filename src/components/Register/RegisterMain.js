@@ -3,6 +3,10 @@ import JobSeekerRegister from "./JobSeekerRegister";
 import CompanyRegister from "./CompanyRegister";
 
 export default function RegisterMain(props) {
+  const isCompanyRegistered = (condtion) => {
+    props.isCompanyRegistered(condtion);
+  };
+
   const [stateOfRegisterButton, setStateOfRegisterButton] =
     useState("JobSeeker");
   const BtnActiveClass =
@@ -56,7 +60,10 @@ export default function RegisterMain(props) {
       {stateOfRegisterButton === "JobSeeker" ? (
         <JobSeekerRegister passDataToMainRegister={getJobSeekerData} />
       ) : (
-        <CompanyRegister passDataToMainRegister={getCompanyData} />
+        <CompanyRegister
+          isCompanyRegistered={isCompanyRegistered}
+          passDataToMainRegister={getCompanyData}
+        />
       )}
     </div>
   );

@@ -13,17 +13,38 @@ import MainHome from "./components/MainHome";
 function App() {
   const [nevigationValue, setNevigationValue] = useState("Home");
 
-  const CompanyData = [];
-  const JobSeekrData = [];
+  const [companyData, setCompanyData] = useState([]);
+  const [jobSeekerData, setJobSeekerData] = useState([]);
+
+  const [isCompanyUserHasBeenLoggedIn, setIsCompanyUserHasBeenLoggedIn] =
+    useState("No");
+  const [isCompanyRegisteredCondtion, setIsCompanyRegisteredCondition] =
+    useState("No");
 
   const getCompanyData = (data) => {
-    CompanyData.push(data);
-    console.log(CompanyData);
+    setCompanyData((prevData) => {
+      return [...prevData, data];
+    });
+    console.log(companyData);
   };
 
   const getJobSeekrData = (data) => {
-    JobSeekrData.push(data);
-    console.log(JobSeekrData);
+    setJobSeekerData((prevData) => {
+      return [...prevData, data];
+    });
+    console.log(jobSeekerData);
+  };
+
+  const isUserLoggedIn = (condition) => {
+    setIsCompanyUserHasBeenLoggedIn(condition);
+  };
+
+  const isCompanyRegistered = (condition) => {
+    setIsCompanyRegisteredCondition(condition);
+  };
+
+  const redirectHome = () => {
+    setNevigationValue("Home");
   };
 
   const showMainContent = () => {
@@ -40,12 +61,19 @@ function App() {
         <RegisterMain
           PassCompData={getCompanyData}
           PassJobSeekerData={getJobSeekrData}
+          isCompanyRegistered={isCompanyRegistered}
         />
       );
     } else if (nevigationValue === "Login") {
       return (
-        <LoginMain CompanyData={CompanyData} JobSeekrData={JobSeekrData} />
+        <LoginMain
+          CompanyData={companyData}
+          JobSeekrData={jobSeekerData}
+          isUserLoggedIn={isUserLoggedIn}
+        />
       );
+    } else if (nevigationValue === "My Profile") {
+      console.log(nevigationValue);
     }
   };
 
@@ -58,12 +86,12 @@ function App() {
     <div className="flex flex-col h-screen justify-between">
       <Navbar GiveNevigationValue={GetValueOfNevigation} />
 
-      <main className="mb-auto h-90">{showMainContent()}</main>
-     
+        <main className="mb-auto h-90">{showMainContent()}</main>
 
-      <Footer />
-    </div>
-  );
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;
