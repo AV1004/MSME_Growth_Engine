@@ -1,6 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Photo from "../../images/JobSeekerIcon.png";
-export default function JobSeekerRegister() {
+export default function JobSeekerRegister(props) {
+  const [jobSeekName, setJobSeekName] = useState("");
+  const [jobSeekEmail, setJobSeekEmail] = useState("");
+  const [jobSeekNumber, setJobSeekNumber] = useState("");
+  const [jobSeekInstitute, setJobSeeksetInstitute] = useState("Institute");
+  const [jobSeekQualification, setJobSeekQualification] =
+    useState("Qualification");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const submitedData = {
+      jobSeekName: jobSeekName,
+      jobSeekEmail: jobSeekEmail,
+      jobSeekNumber: parseInt(jobSeekNumber),
+      jobSeekInstitute: jobSeekInstitute,
+      jobSeekQualification: jobSeekQualification,
+    };
+
+    props.passDataToMainRegister(submitedData);
+
+    setJobSeekName("");
+    setJobSeekEmail("");
+    setJobSeekNumber("");
+    setJobSeeksetInstitute("");
+    setJobSeekQualification("");
+  };
+
   return (
     <div>
       <div>
@@ -10,7 +37,11 @@ export default function JobSeekerRegister() {
           </div>
           <div className="pr-[4rem] ">
             <div className="font-bold text-2xl text-center m-4">Register</div>
-            <form action="" className="space-y-5 flex flex-col items-center">
+            <form
+              action=""
+              onSubmit={submitHandler}
+              className="space-y-5 flex flex-col items-center"
+            >
               <div className="flex ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -32,6 +63,11 @@ export default function JobSeekerRegister() {
                 <input
                   className="bg-white border border-black w-72 h-10 rounded-r-xl p-3"
                   type="text"
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setJobSeekName(e.target.value);
+                  }}
+                  value={jobSeekName}
                   placeholder="Enter Your Name"
                   required
                 />
@@ -55,6 +91,11 @@ export default function JobSeekerRegister() {
                 <input
                   className="bg-white border border-black w-72 h-10 rounded-r-xl p-3"
                   type="email"
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setJobSeekEmail(e.target.value);
+                  }}
+                  value={jobSeekEmail}
                   placeholder="Enter E-Mail"
                   required
                 />
@@ -111,6 +152,11 @@ export default function JobSeekerRegister() {
                 <input
                   type="number"
                   placeholder="Enter mobile number"
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setJobSeekNumber(e.target.value);
+                  }}
+                  value={jobSeekNumber}
                   required
                   className=" bg-white border border-black w-72 h-10 rounded-r-xl p-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
@@ -167,7 +213,14 @@ export default function JobSeekerRegister() {
                     strokeLinecap="round"
                   />
                 </svg>
-                <select className=" border text-gray-400 pl-3 border-black w-72 h-10 rounded-r-xl ">
+                <select
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setJobSeeksetInstitute(e.target.value);
+                  }}
+                  value={jobSeekInstitute}
+                  className=" border text-gray-400 pl-3 border-black w-72 h-10 rounded-r-xl "
+                >
                   <option value="none">Institute</option>
                   <option value="CITD">
                     Central Institute of tool design(CITD),Hydrabad
@@ -227,7 +280,14 @@ export default function JobSeekerRegister() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <select className=" border border-black w-72 text-gray-400 pl-3 h-10 rounded-r-xl ">
+                <select
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setJobSeekQualification(e.target.value);
+                  }}
+                  value={jobSeekQualification}
+                  className=" border border-black w-72 text-gray-400 pl-3 h-10 rounded-r-xl "
+                >
                   <option value="none">Qualification</option>
                   <option value="CITD">Below HSC/10th</option>
                   <option value="CTR">HSC/10th</option>
@@ -242,7 +302,10 @@ export default function JobSeekerRegister() {
                   <option value="MSME5">Graduate(NONtech)puruing</option>
                 </select>
               </div>
-              <button className="e bg-blue-500 text-white p-2 w-[8rem] mt-7 text-center shadow-lg  rounded">
+              <button
+                type="submit"
+                className="e bg-blue-500 text-white p-2 w-[8rem] mt-7 text-center shadow-lg  rounded"
+              >
                 Register
               </button>
               <span>

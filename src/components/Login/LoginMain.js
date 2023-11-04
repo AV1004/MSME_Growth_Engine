@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import JobSeekerLogin from "./JobSeekerLogin";
 import CompanyLogin from "./CompanyLogin";
 
-export default function LoginMain() {
+export default function LoginMain(props) {
   const [stateOfRegisterButton, setStateOfRegisterButton] =
     useState("JobSeeker");
   const BtnActiveClass =
@@ -44,9 +44,9 @@ export default function LoginMain() {
       </div>
 
       {stateOfRegisterButton === "JobSeeker" ? (
-        <JobSeekerLogin />
+        <JobSeekerLogin JobSeekerData={props.JobSeekrData} />
       ) : (
-        <CompanyLogin />
+        <CompanyLogin CompanyData={props.CompanyData} />
       )}
     </div>
   );

@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Photo from "../../images/CompanyIcon.png";
-export default function CompanyRegister() {
+
+export default function CompanyRegister(props) {
+  const [compName, setCompName] = useState("");
+  const [compEmail, setCompEmail] = useState("");
+  const [compContactNo, setCompContactNo] = useState("");
+  const [compURL, setCompURL] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const submitedData = {
+      compName: compName,
+      compEmail: compEmail,
+      compContactNo: parseInt(compContactNo),
+      compURL: compURL,
+    };
+
+    props.passDataToMainRegister(submitedData);
+
+    setCompName("");
+    setCompEmail("");
+    setCompContactNo("");
+    setCompURL("");
+  };
+
   return (
     <div>
       <div>
@@ -10,7 +34,12 @@ export default function CompanyRegister() {
           </div>
           <div className="pr-[4rem] ">
             <div className="font-bold text-2xl text-center m-4">Register</div>
-            <form action="" className="space-y-5 flex flex-col items-center">
+
+            <form
+              action=""
+              onSubmit={submitHandler}
+              className="space-y-5 flex flex-col items-center"
+            >
               <div className="flex ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -32,6 +61,11 @@ export default function CompanyRegister() {
                 <input
                   className="bg-white border border-black w-72 h-10 rounded-r-xl p-3"
                   type="text"
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setCompName(e.target.value);
+                  }}
+                  value={compName}
                   placeholder="Company/Organization Name"
                   required
                 />
@@ -55,6 +89,11 @@ export default function CompanyRegister() {
                 <input
                   className="bg-white border border-black w-72 h-10 rounded-r-xl p-3"
                   type="email"
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setCompEmail(e.target.value);
+                  }}
+                  value={compEmail}
                   placeholder={`Company's E-mail`}
                   required
                 />
@@ -112,6 +151,11 @@ export default function CompanyRegister() {
                   type="number"
                   placeholder="Company's contact No."
                   required
+                  value={compContactNo}
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setCompContactNo(e.target.value);
+                  }}
                   className=" bg-white border border-black w-72 h-10 rounded-r-xl p-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
               </div>
@@ -136,13 +180,21 @@ export default function CompanyRegister() {
                   />
                 </svg>
                 <input
-                  type="number"
+                  type="url`"
                   placeholder="Office URL"
+                  value={compURL}
                   required
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setCompURL(e.target.value);
+                  }}
                   className=" bg-white border border-black w-72 h-10 rounded-r-xl p-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
               </div>
-              <button className=" bg-blue-500 text-white p-2 w-[8rem] mt-7 text-center shadow-lg  rounded">
+              <button
+                type="submit"
+                className=" bg-blue-500 text-white p-2 w-[8rem] mt-7 text-center shadow-lg  rounded"
+              >
                 Register
               </button>
               <span>

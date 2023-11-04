@@ -2,13 +2,24 @@ import React, { useState } from "react";
 import JobSeekerRegister from "./JobSeekerRegister";
 import CompanyRegister from "./CompanyRegister";
 
-export default function RegisterMain() {
+export default function RegisterMain(props) {
   const [stateOfRegisterButton, setStateOfRegisterButton] =
     useState("JobSeeker");
   const BtnActiveClass =
     "bg-blue-500 text-white px-6 py-1 text-center shadow-lg shadow-gray-800  rounded";
   const BtnInActiveClass =
     "border-2 border-blue-500 text-blue-500 px-6 py-1 text-center  rounded";
+
+  const getCompanyData = (obj) => {
+    console.log(obj);
+    props.PassCompData(obj);
+  };
+
+  const getJobSeekerData = (obj) => {
+    console.log(obj);
+    props.PassJobSeekerData(obj);
+  };
+
   return (
     <div>
       <div className="justify-center items-center flex flex-col mt-7">
@@ -43,9 +54,9 @@ export default function RegisterMain() {
         </div>
       </div>
       {stateOfRegisterButton === "JobSeeker" ? (
-        <JobSeekerRegister />
+        <JobSeekerRegister passDataToMainRegister={getJobSeekerData} />
       ) : (
-        <CompanyRegister />
+        <CompanyRegister passDataToMainRegister={getCompanyData} />
       )}
     </div>
   );

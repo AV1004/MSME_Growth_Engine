@@ -10,6 +10,42 @@ import AfterRegisterCompany from "./components/Register/AfterRegisterCompany";
 function App() {
   const [nevigationValue, setNevigationValue] = useState("Home");
 
+  const CompanyData = [];
+  const JobSeekrData = [];
+
+  const getCompanyData = (data) => {
+    CompanyData.push(data);
+    console.log(CompanyData);
+  };
+
+  const getJobSeekrData = (data) => {
+    JobSeekrData.push(data);
+    console.log(JobSeekrData);
+  };
+
+  const showMainContent = () => {
+    if (nevigationValue === "Home") {
+      return "Home Page";
+    } else if (nevigationValue === "AboutMsme") {
+      return <AboutUs />;
+    } else if (nevigationValue === "Learn") {
+      return "Learn Page";
+    } else if (nevigationValue === "Services") {
+      return "Services Page";
+    } else if (nevigationValue === "Register") {
+      return (
+        <RegisterMain
+          PassCompData={getCompanyData}
+          PassJobSeekerData={getJobSeekrData}
+        />
+      );
+    } else if (nevigationValue === "Login") {
+      return (
+        <LoginMain CompanyData={CompanyData} JobSeekrData={JobSeekrData} />
+      );
+    }
+  };
+
   const GetValueOfNevigation = (value) => {
     // console.log(value);
     setNevigationValue(value);
@@ -19,12 +55,7 @@ function App() {
     <div className="flex flex-col h-screen justify-between">
       <Navbar GiveNevigationValue={GetValueOfNevigation} />
 
-      <main className="mb-auto h-90">
-        {/* {nevigationValue === "Register" ? <RegisterMain /> : <LoginMain />} */}
-
-        {/* <AfterRegisterJobSeeker /> */}
-        <AfterRegisterCompany />
-      </main>
+      <main className="mb-auto h-90">{showMainContent()}</main>
 
       <Footer />
     </div>
