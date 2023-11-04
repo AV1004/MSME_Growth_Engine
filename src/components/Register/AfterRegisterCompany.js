@@ -7,6 +7,7 @@ export default function AfterRegisterCompany(props) {
     e.preventDefault();
     props.isCompanyRegistered("No");
     props.redirectHome();
+    alert("You are successfully registered!");
   };
 
   const resetHandler = (e) => {
@@ -155,7 +156,6 @@ export default function AfterRegisterCompany(props) {
             <input
               type="url"
               placeholder="Enter Office Url"
-              required
               className=" bg-white border border-black w-[75rem] outline-none h-10 rounded-r-xl p-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
           </div>

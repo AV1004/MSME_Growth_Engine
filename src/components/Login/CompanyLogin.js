@@ -13,6 +13,7 @@ export default function CompanyLogin(props) {
     if (filterCompanyData.includes(username)) {
       alert("Logged In successfully");
       props.isUserLoggedIn("Yes");
+      props.redirectHome();
     } else {
       alert("Please enter valid Username!");
       props.isUserLoggedIn("No");

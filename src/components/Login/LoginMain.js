@@ -51,6 +51,7 @@ export default function LoginMain(props) {
         <JobSeekerLogin JobSeekerData={props.JobSeekrData} />
       ) : (
         <CompanyLogin
+          redirectHome={props.redirectHome}
           isUserLoggedIn={isUserLoggedIn}
           CompanyData={props.CompanyData}
         />

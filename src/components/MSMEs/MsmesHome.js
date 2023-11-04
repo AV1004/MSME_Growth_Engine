@@ -1,6 +1,7 @@
 import React from "react";
 import MSMEphotu1 from "../../images/MSMEHOME photu1.png";
-export default function () {
+
+export default function MsmesHome() {
   return (
     <div>
       <p className="font-bold text-4xl text-center m-10">List of MSMEs</p>
@@ -32,7 +33,7 @@ export default function () {
             </div>
             <span className="ml-[0.8rem]  font-semibold text-lg ">URL: </span>
             <button className="text-blue-400 m">
-               https://www.kirloskarpumps.com/
+              https://www.kirloskarpumps.com/
             </button>
             <div className="justify-center flex">
               <button className="mr-[7rem] my-[1.5rem] text-white rounded-2xl p-3 bg-blue-500 text-xl">
@@ -68,7 +69,7 @@ export default function () {
             </div>
             <span className="ml-[0.8rem]  font-semibold text-lg ">URL: </span>
             <button className="text-blue-400 m">
-               https://www.kirloskarpumps.com/
+              https://www.kirloskarpumps.com/
             </button>
             <div className="justify-center flex">
               <button className="mr-[7rem] my-[1.5rem] text-white rounded-2xl p-3 bg-blue-500 text-xl">

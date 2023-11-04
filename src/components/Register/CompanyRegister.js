@@ -18,6 +18,7 @@ export default function CompanyRegister(props) {
     };
 
     props.isCompanyRegistered("Yes");
+    
 
     props.passDataToMainRegister(submitedData);
 
@@ -185,7 +186,6 @@ export default function CompanyRegister(props) {
                   type="url`"
                   placeholder="Office URL"
                   value={compURL}
-                  required
                   onChange={(e) => {
                     e.preventDefault();
                     setCompURL(e.target.value);
