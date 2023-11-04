@@ -6,20 +6,20 @@ export default function CompnayHome() {
   return (
     <div>
       <div className="flex flex-col justify-center  h-fit"></div>
-        <div className="w-full my-16  border-2 border-gray-300 flex"></div>
-        <img src={filter} alt="" className="w-[2rem] absolute top-[9.75rem]" />
-        <span>Location</span>
-        <select>
-          Location
-          <option value="location">Location</option>
-          <option value="location">Location</option>
-          <option value="location">Location</option>
-          <option value="location">Location</option>
-          <option value="location">Location</option>
-        </select>
-        <div className="w-full   border-2 border-gray-300"></div>
-      
-      <div className="flex justify-center flex-col  items-center ">
+      <div className="w-full my-16  border-2 border-gray-300 flex"></div>
+      <img src={filter} alt="" className="w-[2rem] absolute top-[9.75rem]" />
+      <span>Filter</span>
+      <select>
+        Location
+        <option value="Qualification">Qualification</option>
+        <option value="Loaction">Loaction</option>
+        <option value="Skills">Skills</option>
+        <option value="Experience">Experience</option>
+        <option value="Area of Interest">Location</option>
+      </select>
+      <div className="w-full   border-2 border-gray-300"></div>
+
+      <div className="flex justify-center flex-col mt-10 items-center ">
         <div className="border-2 border-black flex flex-row w-[55rem] rounded-2xl h-[24rem] p-6 justify-center hover:h-[24rem] hover:shadow-3xl  hover:shadow-black mb-[3rem]">
           <div>
             <img

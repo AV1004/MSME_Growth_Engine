@@ -13,7 +13,7 @@ import MainHome from "./components/MainHome";
 function App() {
   const [nevigationValue, setNevigationValue] = useState("Home");
 
-  const [companyData, setCompanyData] = useState([]);
+  const [companyData, setCompanyData] = useState([{compName:"Valay"}]);
   const [jobSeekerData, setJobSeekerData] = useState([]);
 
   const [isCompanyUserHasBeenLoggedIn, setIsCompanyUserHasBeenLoggedIn] =
@@ -78,7 +78,7 @@ function App() {
         />
       );
     } else if (nevigationValue === "My Profile") {
-      console.log(nevigationValue);
+      // console.log(nevigationValue);
     }
   };
 

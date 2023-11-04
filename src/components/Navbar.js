@@ -31,11 +31,11 @@ export default function Navbar(props) {
         <div className="space-x-9 pl-48">
           <button
             onClick={() => {
-              setCompanyIsLoggedIn({
+              setHomeButtonState({
                 class:
                   "bg-white text-blue-500 px-6 py-1 text-center  rounded-2xl",
               });
-              setHomeButtonState({ class: "" });
+
               setAboutButtonState({ class: "" });
               setLearnButtonState({ class: "" });
               setMsmesHomeButtonState({ class: "" });
